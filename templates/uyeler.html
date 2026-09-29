@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Üye Listesi - dünyakanıyor.com</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='ortak.js') }}"></script>
+</head>
+<body>
+<div class="page">
+<script>ustKisim("uyeler");</script>
+<div class="icerik">
+
+  <div class="breadcrumb">
+    <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <b>Üye Listesi</b>
+    <span style="float:right" class="smallfont">Harfe göre: <a href="#">#</a> <a href="#">A</a> <a href="#">B</a> <a href="#">C</a> <a href="#">Ç</a> <a href="#">D</a> ... <a href="#">Z</a></span>
+  </div>
+
+  <table class="tborder">
+    <tr><td class="tcat" colspan="6">Üye Listesi <span class="smallfont" style="font-weight:normal">({{ uyeler|length }} üye)</span></td></tr>
+    <tr>
+      <td class="thead">Kullanıcı Adı</td>
+      <td class="thead">Rütbe</td>
+      <td class="thead center" width="90">Kayıt Tarihi</td>
+      <td class="thead center" width="60">Mesaj</td>
+      <td class="thead center" width="90">Son Ziyaret</td>
+      <td class="thead center" width="30">ÖM</td>
+    </tr>
+    {% for uye in uyeler %}
+    <tr>
+      <td class="alt1"><a class="u-uye" href="#">{{ uye.kullanici_adi }}</a></td>
+      <td class="alt2">{{ uye.tag }}</td>
+      <td class="alt1 center">{{ uye.kayit_tarihi.strftime('%d.%m.%Y') }}</td>
+      <td class="alt2 center">0</td>
+      <td class="alt1 center">Bugün</td>
+      <td class="alt2 center"><a href="#">&#9993;</a></td>
+    </tr>
+    {% else %}
+    <tr><td class="alt1 center" colspan="6">Henüz kayıtlı üye yok.</td></tr>
+    {% endfor %}
+  </table>
+
+  <table class="tborder">
+    <tr><td class="tcat" colspan="2">Rütbe Sistemi</td></tr>
+    <tr><td class="thead">Rütbe</td><td class="thead">Gereken mesaj</td></tr>
+    <tr><td class="alt1">Çaylak</td><td class="alt2">0 &ndash; 99</td></tr>
+    <tr><td class="alt1">Mühür Taşıyıcı</td><td class="alt2">100 &ndash; 499</td></tr>
+    <tr><td class="alt1">Yarık Gözcüsü</td><td class="alt2">500 &ndash; 999</td></tr>
+    <tr><td class="alt1">Kül Yürüyücüsü</td><td class="alt2">1.000 &ndash; 2.499</td></tr>
+    <tr><td class="alt1">Kanayan Toprak</td><td class="alt2">2.500+</td></tr>
+  </table>
+
+</div>
+<script>altKisim();</script>
+</div>
+</body>
+</html>

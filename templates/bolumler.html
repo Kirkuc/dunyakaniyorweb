@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bölümler - dünyakanıyor.com</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='ortak.js') }}"></script>
+</head>
+<body>
+<div class="page">
+<script>ustKisim("bolumler");</script>
+<div class="icerik">
+
+  <div class="breadcrumb">
+    <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <b>Bölüm Rehberi</b>
+  </div>
+
+  <table class="tborder">
+    <tr><td class="tcat" colspan="5">Sezon 1 &mdash; Bölüm Rehberi</td></tr>
+    <tr>
+      <td class="thead center" width="50">Bölüm</td>
+      <td class="thead">Başlık &amp; Özet</td>
+      <td class="thead center" width="90">Yayın</td>
+      <td class="thead center" width="70">Süre</td>
+      <td class="thead center" width="90">Tartışma</td>
+    </tr>
+    <tr>
+      <td class="alt1 center"><b>1</b></td>
+      <td class="alt2"><b>Toprak Susmadı</b><div class="desc">Kurye Kaan, teslim etmesi gereken paketi Büyük Yarık'ın çitlerinin dibinde bulur. Paketin içinde ağabeyi Levent'in pusulası vardır.</div></td>
+      <td class="alt1 center">10.08.2026</td><td class="alt2 center">14:32</td><td class="alt1 center"><a href="{{ url_for('konu_sayfa') }}">Konuya git</a></td>
+    </tr>
+    <tr>
+      <td class="alt1 center"><b>2</b></td>
+      <td class="alt2"><b>Hüsnü'nün Radyosu</b><div class="desc">Kaan pusulayı Hüsnü Usta'ya götürür. Radyo, Yarık'ın yönünden gelen bir yayın yakalar: Levent'in sesi.</div></td>
+      <td class="alt1 center">24.08.2026</td><td class="alt2 center">16:05</td><td class="alt1 center"><a href="{{ url_for('konu_sayfa') }}">Konuya git</a></td>
+    </tr>
+    <tr>
+      <td class="alt1 center"><b>3</b></td>
+      <td class="alt2"><b>Kırk Gece</b><div class="desc">Geri dönüş bölümü. Hüsnü Usta Kızıl Yağmur'u ve Konsey'in kuruluşunu anlatır. Kaan'ın burnu ilk kez kanar.</div></td>
+      <td class="alt1 center">07.09.2026</td><td class="alt2 center">18:47</td><td class="alt1 center"><a href="{{ url_for('konu_sayfa') }}">Konuya git</a></td>
+    </tr>
+    <tr>
+      <td class="alt1 center"><b>4</b></td>
+      <td class="alt2"><b>Kırmızı İp</b><div class="desc">Kaan, yıkık hamamda Mühürcülerle ve Selvi'yle tanışır. Konsey baskını.</div></td>
+      <td class="alt1 center">14.09.2026</td><td class="alt2 center">15:20</td><td class="alt1 center"><a href="{{ url_for('konu_sayfa') }}">Konuya git</a></td>
+    </tr>
+    <tr>
+      <td class="alt1 center"><b>5</b></td>
+      <td class="alt2"><b>Mühür</b><div class="desc">Selvi, yedinci düğümün anlamını açıklar. Oruç Tahir, Kaan'ı Konsey kulesine "davet" eder.</div></td>
+      <td class="alt1 center">21.09.2026</td><td class="alt2 center">17:11</td><td class="alt1 center"><a href="{{ url_for('konu_sayfa') }}">Konuya git</a></td>
+    </tr>
+    <tr>
+      <td class="alt1 center"><b>6</b></td>
+      <td class="alt2"><b>Yarık Açıldığında</b> <span class="red smallfont">[YAKINDA]</span><div class="desc">Özet yayından sonra eklenecek.</div></td>
+      <td class="alt1 center">02.10.2026</td><td class="alt2 center">&mdash;</td><td class="alt1 center muted">&mdash;</td>
+    </tr>
+  </table>
+
+  <table class="tborder">
+    <tr><td class="tcat">Oyuncular &amp; Ekip</td></tr>
+    <tr><td class="alt1 smallfont" style="line-height:1.8">
+      <b>Kaan Demirel</b> &mdash; [Oyuncu Adı] &nbsp;&middot;&nbsp; <b>Hüsnü Usta</b> &mdash; [Oyuncu Adı] &nbsp;&middot;&nbsp; <b>Selvi</b> &mdash; [Oyuncu Adı] &nbsp;&middot;&nbsp; <b>Oruç Tahir</b> &mdash; [Oyuncu Adı]<br>
+      <b>Yazan &amp; Yöneten:</b> [İsim] &nbsp;&middot;&nbsp; <b>Görüntü:</b> [İsim] &nbsp;&middot;&nbsp; <b>Müzik:</b> [İsim]<br>
+      <a href="#">YouTube kanalına git &raquo;</a>
+    </td></tr>
+  </table>
+
+</div>
+<script>altKisim();</script>
+</div>
+</body>
+</html>
