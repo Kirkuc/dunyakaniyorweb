@@ -1,10 +1,18 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
 
+load_dotenv()
+SECRET_KEY = os.getenv("SECRET_KEY")
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SECRET_KEY'] = SECRET_KEY
+
+print(SECRET_KEY)
 
 db = SQLAlchemy(app)
 
