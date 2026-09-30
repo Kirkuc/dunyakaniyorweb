@@ -1,154 +1,144 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lore Ansiklopedisi - dünyakanıyor.com</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='ortak.js') }}"></script>
-</head>
-<body>
-<div class="page">
-<script>ustKisim("lore");</script>
-<div class="icerik">
+{% extends "base.html" %}
 
-  <div class="breadcrumb">
-    <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <b>Lore Ansiklopedisi</b> &gt; Ana Sayfa
-    <span style="float:right" class="smallfont">Madde ara: <input type="text" size="18"> <input type="button" value="Git"></span>
-  </div>
+{% block ustKisim_icerigi %}lore{% endblock %}
 
-  <div class="wiki">
-    <!-- SOL MENÜ -->
-    <div class="yan">
-      <div class="wikibox">
-        <h3>&#9670; Gezinti</h3>
-        <ul class="smallfont">
-          <li><a href="{{ url_for('lore_sayfa') }}">Ana Sayfa</a></li>
-          <li><a href="#olaylar">Olaylar</a></li>
-          <li><a href="#yerler">Yerler</a></li>
-          <li><a href="#gruplar">Gruplar &amp; Tarikatlar</a></li>
-          <li><a href="#karakterler">Karakterler</a></li>
-          <li><a href="#kavramlar">Kavramlar</a></li>
-          <li><a href="#takvim">Zaman Çizelgesi</a></li>
-          <li><a href="#">Rastgele Madde</a></li>
-        </ul>
-      </div>
-      <div class="wikibox">
-        <h3>&#9670; Katkı</h3>
-        <ul class="smallfont">
-          <li><a href="{{ url_for('forum_sayfa') }}">Katkı Masası (forum)</a></li>
-          <li><a href="#">Yazım Kılavuzu</a></li>
-          <li><a href="#">Son Değişiklikler</a></li>
-          <li><a href="#">Eksik Maddeler</a></li>
-        </ul>
-      </div>
-      <div class="wikibox">
-        <h3>&#9670; Kanonluk Etiketleri</h3>
-        <div class="smallfont" style="padding:6px">
-          <b style="color:#ff5a4a">[KANON]</b> Dizide gösterildi.<br>
-          <b style="color:#e8b34d">[YARI-KANON]</b> Yapımcı açıklaması, kamera arkası.<br>
-          <b style="color:#9c8674">[TEORİ]</b> Hayran yorumu, doğrulanmadı.
-        </div>
-      </div>
-      <div class="wikibox">
-        <h3>&#9670; İstatistik</h3>
-        <div class="smallfont" style="padding:6px">
-          Madde sayısı: 64<br>Yazar sayısı: 7<br>Son güncelleme: Bugün 19:17
-        </div>
-      </div>
-    </div>
+{% block title %}
+Lore - DünyaKaniyorWeb 
+{% endblock %}
 
-    <!-- ANA İÇERİK -->
-    <div class="ana">
-      <div class="madde">
-        <h1>Dünya Kanıyor Ansiklopedisi</h1>
-        <div class="altbaslik">Kızıl Yağmur'dan bu yana yazılan her şeyin hayranlar tarafından tutulan arşivi.</div>
-
-        <div class="uyari">&#9888; <b>Spoiler uyarısı:</b> Bu ansiklopedi yayınlanmış tüm bölümleri (S1B1&ndash;S1B5) kapsar. Diziyi izlemediysen dikkatli oku.</div>
-
-        <p><b>Dünya Kanıyor</b>, Kızıl Yağmur adı verilen felaketten on sekiz yıl sonra geçen bir YouTube dizisidir. Yağmurun ardından toprak yarılmış
-        ve çatlaklardan <a href="#kan-oz">Kan-Öz</a> denen koyu kırmızı, ılık bir madde sızmaya başlamıştır. Dünya yavaş yavaş kan kaybetmektedir;
-        kimileri bunu bir hastalık, kimileri bir ceza, kimileri de bir <i>uyanış</i> olarak görür.</p>
-
-        <p>Dizi, kayıp ağabeyini arayan <a href="#karakterler">Kaan Demirel</a>'in gözünden, küllerin üzerine kurulmuş <a href="#yerler">Harran-ı Nev</a>
-        şehrinde geçer. Şehri demir yumrukla yöneten <a href="#gruplar">Demir Konsey</a>, yarıkları kapatmaya çalışan gizemli <a href="#gruplar">Mühürcüler</a>
-        ve yağmurdan sonra doğan, toprağı <i>duyabilen</i> <a href="#gruplar">Yarık Çocukları</a> arasındaki gerilim hikâyenin omurgasını oluşturur.</p>
-
-        <blockquote>"Yağmur durdu. Toprak susmadı." &mdash; Anlatıcı, S1B1</blockquote>
-
-        <div class="toc"><b>İçindekiler</b>
-          <ol>
+{% block icerik %}
+    <div class="wiki">
+      <!-- SOL MENÜ -->
+      <div class="yan">
+        <div class="wikibox">
+          <h3>&#9670; Gezinti</h3>
+          <ul class="smallfont">
+            <li><a href="{{ url_for('lore_sayfa') }}">Ana Sayfa</a></li>
             <li><a href="#olaylar">Olaylar</a></li>
             <li><a href="#yerler">Yerler</a></li>
             <li><a href="#gruplar">Gruplar &amp; Tarikatlar</a></li>
             <li><a href="#karakterler">Karakterler</a></li>
             <li><a href="#kavramlar">Kavramlar</a></li>
             <li><a href="#takvim">Zaman Çizelgesi</a></li>
-          </ol>
+            <li><a href="#">Rastgele Madde</a></li>
+          </ul>
         </div>
+        <div class="wikibox">
+          <h3>&#9670; Katkı</h3>
+          <ul class="smallfont">
+            <li><a href="{{ url_for('forum_sayfa') }}">Katkı Masası (forum)</a></li>
+            <li><a href="#">Yazım Kılavuzu</a></li>
+            <li><a href="#">Son Değişiklikler</a></li>
+            <li><a href="#">Eksik Maddeler</a></li>
+          </ul>
+        </div>
+        <div class="wikibox">
+          <h3>&#9670; Kanonluk Etiketleri</h3>
+          <div class="smallfont" style="padding:6px">
+            <b style="color:#ff5a4a">[KANON]</b> Dizide gösterildi.<br>
+            <b style="color:#e8b34d">[YARI-KANON]</b> Yapımcı açıklaması, kamera arkası.<br>
+            <b style="color:#9c8674">[TEORİ]</b> Hayran yorumu, doğrulanmadı.
+          </div>
+        </div>
+        <div class="wikibox">
+          <h3>&#9670; İstatistik</h3>
+          <div class="smallfont" style="padding:6px">
+            Madde sayısı: 64<br>Yazar sayısı: 7<br>Son güncelleme: Bugün 19:17
+          </div>
+        </div>
+      </div>
 
-        <h2 id="olaylar">1. Olaylar</h2>
-        <p><b><a href="{{ url_for('lore_kizil_yagmur_sayfa') }}">Kızıl Yağmur</a></b> <b style="color:#b3140f">[KANON]</b> &mdash; Kırk gün kırk gece yağan kırmızı yağmur. Her şeyin başlangıcı.
-        Yağmur durduğunda toprakta ilk yarıklar açılmıştı. <a href="{{ url_for('lore_kizil_yagmur_sayfa') }}">Maddenin tamamını oku &raquo;</a></p>
-        <p><b>Kül Günü</b> <b style="color:#b3140f">[KANON]</b> &mdash; Yağmurdan üç yıl sonra eski şehrin tek gecede yanması. Yangının nedeni resmi kayıtlarda "Kan-Öz
-        deposu patlaması" olarak geçer; Mühürcüler ise yangını Konsey'in bilerek çıkardığına inanır.</p>
-        <p><b>Birinci Mühürleme</b> <b style="color:#e8b34d">[YARI-KANON]</b> &mdash; Mühürcülerin Büyük Yarık'ı kapatma girişimi. Yarık bir haftalığına sustu,
-        ardından iki katı genişledi. Yönetmenin kamera arkası videosunda bu olayın 2. sezonda gösterileceği ima edildi.</p>
+      <!-- ANA İÇERİK -->
+      <div class="ana">
+        <div class="madde">
+          <h1>Dünya Kanıyor Ansiklopedisi</h1>
+          <div class="altbaslik">Kızıl Yağmur'dan bu yana yazılan her şeyin hayranlar tarafından tutulan arşivi.</div>
 
-        <h2 id="yerler">2. Yerler</h2>
-        <p><b>Harran-ı Nev (Kül Şehir)</b> &mdash; Kül Günü'nde yanan eski şehrin kalıntıları üzerine kurulan yeni şehir. Evlerin çoğu yanık kerpiç ve hurda metalden yapılmıştır.
-        Şehrin ortasından geçen <i>Kızıl Kanal</i>, Kan-Öz'ü rafinerilere taşır.</p>
-        <p><b>Büyük Yarık</b> &mdash; Şehrin kuzeyinde, dibi görünmeyen dev çatlak. Geceleri içinden ılık bir buhar yükselir ve bazı insanlar oradan <i>isimlerinin</i> seslenildiğini duyar.
-        Konsey etrafını demir çitle çevirmiştir.</p>
-        <p><b>Hüsnü Usta'nın Atölyesi</b> &mdash; Eski çarşının altındaki bodrum. Radyolar, pusulalar ve kimsenin ne işe yaradığını bilmediği bir "dinleme makinesi" burada.</p>
-        <p><b>Sessiz Köy</b> <b style="color:#9c8674">[TEORİ]</b> &mdash; Haritada adı geçmeyen ama jenerikteki haritada bir an görünen yerleşim. Hayranlar burada yarığın hiç açılmadığını düşünüyor.</p>
+          <div class="uyari">&#9888; <b>Spoiler uyarısı:</b> Bu ansiklopedi yayınlanmış tüm bölümleri (S1B1&ndash;S1B5) kapsar. Diziyi izlemediysen dikkatli oku.</div>
 
-        <h2 id="gruplar">3. Gruplar &amp; Tarikatlar</h2>
-        <p><b>Demir Konsey</b> &mdash; Kızıl Yağmur'dan sonra düzeni sağlamak için kurulan askerî yönetim. Kan-Öz ticaretini tekelinde tutar. Arması: siyah zemin üzerinde üç dikey kırmızı çizgi.
-        Sloganı: <i>"Düzen kanı durdurur."</i></p>
-        <p><b>Mühürcüler</b> &mdash; Yarıkların ritüellerle kapatılabileceğine inanan tarikat. Üyeleri bileklerine kırmızı ipten mühür bağlar. Konsey tarafından yasaklanmıştır;
-        toplantılarını yıkık hamamlarda yaparlar.</p>
-        <p><b>Yarık Çocukları</b> &mdash; Yağmurdan sonra doğan ve toprağın "sesini" duyabilen gençler. Hepsinde bu yetenek yoktur; olanların gözlerinin iç köşesinde ince kırmızı bir çizgi bulunur.
-        Konsey bu çocukları "sayım" adı altında kayıt altına alır.</p>
+          <p><b>Dünya Kanıyor</b>, Kızıl Yağmur adı verilen felaketten on sekiz yıl sonra geçen bir YouTube dizisidir. Yağmurun ardından toprak yarılmış
+          ve çatlaklardan <a href="#kan-oz">Kan-Öz</a> denen koyu kırmızı, ılık bir madde sızmaya başlamıştır. Dünya yavaş yavaş kan kaybetmektedir;
+          kimileri bunu bir hastalık, kimileri bir ceza, kimileri de bir <i>uyanış</i> olarak görür.</p>
 
-        <h2 id="karakterler">4. Karakterler</h2>
-        <table width="100%" cellpadding="4" style="border-collapse:collapse;font-size:12px">
-          <tr style="background:#6b1812;color:#fff"><th align="left">Karakter</th><th align="left">Taraf</th><th align="left">Kısa Bilgi</th></tr>
-          <tr style="background:#e2d4b8"><td><b>Kaan Demirel</b></td><td>Bağımsız</td><td>24 yaşında kurye. Kayıp ağabeyi Levent'i arıyor. Yarığa yaklaştıkça burnu kanıyor.</td></tr>
-          <tr><td><b>Levent Demirel</b></td><td>Bilinmiyor</td><td>Kaan'ın ağabeyi. Üç yıl önce Büyük Yarık'ın başında kayboldu. Cesedi bulunamadı.</td></tr>
-          <tr style="background:#e2d4b8"><td><b>Hüsnü Usta</b></td><td>Bağımsız</td><td>Yaşlı tamirci, Kaan'ın akıl hocası. Kızıl Yağmur'dan önceki dünyayı hatırlayan az sayıdaki kişiden biri.</td></tr>
-          <tr><td><b>Selvi</b></td><td>Mühürcüler</td><td>Genç Mühürcü, ritüelleri ezbere bilen tek kişi. Kaan'a yardım ediyor ama bir şey saklıyor.</td></tr>
-          <tr style="background:#e2d4b8"><td><b>Başkan Oruç Tahir</b></td><td>Demir Konsey</td><td>Konsey'in kurucusu. Soğukkanlı, hesaplı. Kızıl Yağmur'un ilk gecesinde neler gördüğünü hiç anlatmadı.</td></tr>
-          <tr><td><b>Anlatıcı</b></td><td>?</td><td>Her bölümün başında konuşan boğuk ses. Kimliği bilinmiyor. (bkz. <a href="{{ url_for('konu_sayfa') }}">forum teorisi</a>)</td></tr>
-        </table>
+          <p>Dizi, kayıp ağabeyini arayan <a href="#karakterler">Kaan Demirel</a>'in gözünden, küllerin üzerine kurulmuş <a href="#yerler">Harran-ı Nev</a>
+          şehrinde geçer. Şehri demir yumrukla yöneten <a href="#gruplar">Demir Konsey</a>, yarıkları kapatmaya çalışan gizemli <a href="#gruplar">Mühürcüler</a>
+          ve yağmurdan sonra doğan, toprağı <i>duyabilen</i> <a href="#gruplar">Yarık Çocukları</a> arasındaki gerilim hikâyenin omurgasını oluşturur.</p>
 
-        <h2 id="kavramlar">5. Kavramlar</h2>
-        <p id="kan-oz"><b>Kan-Öz</b> &mdash; Yarıklardan sızan koyu kırmızı, vücut ısısında, hafif demir kokulu sıvı. Arıtıldığında yakıt olarak kullanılır ve şehirde para yerine geçer
-        (1 şişe = 1 "damla"). Uzun süre temas edenlerde <b>Kızarma</b> görülür: kulak çınlaması, fısıltılar, sonunda ise uykuda yürüme.</p>
-        <p><b>Kızarma</b> &mdash; Kan-Öz'e maruz kalmanın yol açtığı durum. Konsey bunu bir hastalık olarak tanımlar; Mühürcüler ise "toprağın insana konuşmaya başlaması" der.</p>
-        <p><b>Mühür</b> &mdash; Kırmızı ipten örülmüş, yedi düğümlü bilezik. Her düğüm bir yarığı temsil eder. Mühürcülere göre yedi yarık kapanırsa dünya iyileşecektir.</p>
+          <blockquote>"Yağmur durdu. Toprak susmadı." &mdash; Anlatıcı, S1B1</blockquote>
 
-        <h2 id="takvim">6. Zaman Çizelgesi</h2>
-        <table width="100%" cellpadding="4" style="border-collapse:collapse;font-size:12px">
-          <tr style="background:#6b1812;color:#fff"><th align="left" width="110">Tarih (YS)</th><th align="left">Olay</th></tr>
-          <tr style="background:#e2d4b8"><td>YS 0</td><td>Kızıl Yağmur başlar. 40 gün sürer.</td></tr>
-          <tr><td>YS 0</td><td>Yağmurun durduğu gece ilk yarıklar açılır. Demir Konsey kurulur.</td></tr>
-          <tr style="background:#e2d4b8"><td>YS 3</td><td>Kül Günü. Eski şehir yanar.</td></tr>
-          <tr><td>YS 4</td><td>Harran-ı Nev'in inşası başlar. Mühürcüler yasaklanır.</td></tr>
-          <tr style="background:#e2d4b8"><td>YS 11</td><td>Birinci Mühürleme. Büyük Yarık genişler.</td></tr>
-          <tr><td>YS 15</td><td>Levent Demirel kaybolur.</td></tr>
-          <tr style="background:#e2d4b8"><td><b>YS 18</b></td><td><b>Dizinin başladığı yıl.</b></td></tr>
-        </table>
-        <p class="smallfont" style="font-size:11px"><i>YS = "Yağmur'dan Sonra", Demir Konsey'in resmî takvimi. Mühürcüler yılları Kül Günü'nden sayar (KG). Bu yüzden dizideki bazı tarihler bir-üç yıl farklı görünebilir.</i></p>
+          <div class="toc"><b>İçindekiler</b>
+            <ol>
+              <li><a href="#olaylar">Olaylar</a></li>
+              <li><a href="#yerler">Yerler</a></li>
+              <li><a href="#gruplar">Gruplar &amp; Tarikatlar</a></li>
+              <li><a href="#karakterler">Karakterler</a></li>
+              <li><a href="#kavramlar">Kavramlar</a></li>
+              <li><a href="#takvim">Zaman Çizelgesi</a></li>
+            </ol>
+          </div>
 
-        <hr>
-        <div class="smallfont" style="font-size:10px;color:#6b5a47">Bu sayfa en son bugün 19:17'de <b>Arşivci_Nur</b> tarafından düzenlendi. &middot; <a href="#">Geçmiş</a> &middot; <a href="#">Tartışma</a> &middot; <a href="#">Düzenle</a></div>
+          <h2 id="olaylar">1. Olaylar</h2>
+          <p><b><a href="{{ url_for('lore_kizil_yagmur_sayfa') }}">Kızıl Yağmur</a></b> <b style="color:#b3140f">[KANON]</b> &mdash; Kırk gün kırk gece yağan kırmızı yağmur. Her şeyin başlangıcı.
+          Yağmur durduğunda toprakta ilk yarıklar açılmıştı. <a href="{{ url_for('lore_kizil_yagmur_sayfa') }}">Maddenin tamamını oku &raquo;</a></p>
+          <p><b>Kül Günü</b> <b style="color:#b3140f">[KANON]</b> &mdash; Yağmurdan üç yıl sonra eski şehrin tek gecede yanması. Yangının nedeni resmi kayıtlarda "Kan-Öz
+          deposu patlaması" olarak geçer; Mühürcüler ise yangını Konsey'in bilerek çıkardığına inanır.</p>
+          <p><b>Birinci Mühürleme</b> <b style="color:#e8b34d">[YARI-KANON]</b> &mdash; Mühürcülerin Büyük Yarık'ı kapatma girişimi. Yarık bir haftalığına sustu,
+          ardından iki katı genişledi. Yönetmenin kamera arkası videosunda bu olayın 2. sezonda gösterileceği ima edildi.</p>
+
+          <h2 id="yerler">2. Yerler</h2>
+          <p><b>Harran-ı Nev (Kül Şehir)</b> &mdash; Kül Günü'nde yanan eski şehrin kalıntıları üzerine kurulan yeni şehir. Evlerin çoğu yanık kerpiç ve hurda metalden yapılmıştır.
+          Şehrin ortasından geçen <i>Kızıl Kanal</i>, Kan-Öz'ü rafinerilere taşır.</p>
+          <p><b>Büyük Yarık</b> &mdash; Şehrin kuzeyinde, dibi görünmeyen dev çatlak. Geceleri içinden ılık bir buhar yükselir ve bazı insanlar oradan <i>isimlerinin</i> seslenildiğini duyar.
+          Konsey etrafını demir çitle çevirmiştir.</p>
+          <p><b>Hüsnü Usta'nın Atölyesi</b> &mdash; Eski çarşının altındaki bodrum. Radyolar, pusulalar ve kimsenin ne işe yaradığını bilmediği bir "dinleme makinesi" burada.</p>
+          <p><b>Sessiz Köy</b> <b style="color:#9c8674">[TEORİ]</b> &mdash; Haritada adı geçmeyen ama jenerikteki haritada bir an görünen yerleşim. Hayranlar burada yarığın hiç açılmadığını düşünüyor.</p>
+
+          <h2 id="gruplar">3. Gruplar &amp; Tarikatlar</h2>
+          <p><b>Demir Konsey</b> &mdash; Kızıl Yağmur'dan sonra düzeni sağlamak için kurulan askerî yönetim. Kan-Öz ticaretini tekelinde tutar. Arması: siyah zemin üzerinde üç dikey kırmızı çizgi.
+          Sloganı: <i>"Düzen kanı durdurur."</i></p>
+          <p><b>Mühürcüler</b> &mdash; Yarıkların ritüellerle kapatılabileceğine inanan tarikat. Üyeleri bileklerine kırmızı ipten mühür bağlar. Konsey tarafından yasaklanmıştır;
+          toplantılarını yıkık hamamlarda yaparlar.</p>
+          <p><b>Yarık Çocukları</b> &mdash; Yağmurdan sonra doğan ve toprağın "sesini" duyabilen gençler. Hepsinde bu yetenek yoktur; olanların gözlerinin iç köşesinde ince kırmızı bir çizgi bulunur.
+          Konsey bu çocukları "sayım" adı altında kayıt altına alır.</p>
+
+          <h2 id="karakterler">4. Karakterler</h2>
+          <table width="100%" cellpadding="4" style="border-collapse:collapse;font-size:12px">
+            <tr style="background:#6b1812;color:#fff"><th align="left">Karakter</th><th align="left">Taraf</th><th align="left">Kısa Bilgi</th></tr>
+            <tr style="background:#e2d4b8"><td><b>Kaan Demirel</b></td><td>Bağımsız</td><td>24 yaşında kurye. Kayıp ağabeyi Levent'i arıyor. Yarığa yaklaştıkça burnu kanıyor.</td></tr>
+            <tr><td><b>Levent Demirel</b></td><td>Bilinmiyor</td><td>Kaan'ın ağabeyi. Üç yıl önce Büyük Yarık'ın başında kayboldu. Cesedi bulunamadı.</td></tr>
+            <tr style="background:#e2d4b8"><td><b>Hüsnü Usta</b></td><td>Bağımsız</td><td>Yaşlı tamirci, Kaan'ın akıl hocası. Kızıl Yağmur'dan önceki dünyayı hatırlayan az sayıdaki kişiden biri.</td></tr>
+            <tr><td><b>Selvi</b></td><td>Mühürcüler</td><td>Genç Mühürcü, ritüelleri ezbere bilen tek kişi. Kaan'a yardım ediyor ama bir şey saklıyor.</td></tr>
+            <tr style="background:#e2d4b8"><td><b>Başkan Oruç Tahir</b></td><td>Demir Konsey</td><td>Konsey'in kurucusu. Soğukkanlı, hesaplı. Kızıl Yağmur'un ilk gecesinde neler gördüğünü hiç anlatmadı.</td></tr>
+            <tr><td><b>Anlatıcı</b></td><td>?</td><td>Her bölümün başında konuşan boğuk ses. Kimliği bilinmiyor. (bkz. <a href="{{ url_for('konu_sayfa') }}">forum teorisi</a>)</td></tr>
+          </table>
+
+          <h2 id="kavramlar">5. Kavramlar</h2>
+          <p id="kan-oz"><b>Kan-Öz</b> &mdash; Yarıklardan sızan koyu kırmızı, vücut ısısında, hafif demir kokulu sıvı. Arıtıldığında yakıt olarak kullanılır ve şehirde para yerine geçer
+          (1 şişe = 1 "damla"). Uzun süre temas edenlerde <b>Kızarma</b> görülür: kulak çınlaması, fısıltılar, sonunda ise uykuda yürüme.</p>
+          <p><b>Kızarma</b> &mdash; Kan-Öz'e maruz kalmanın yol açtığı durum. Konsey bunu bir hastalık olarak tanımlar; Mühürcüler ise "toprağın insana konuşmaya başlaması" der.</p>
+          <p><b>Mühür</b> &mdash; Kırmızı ipten örülmüş, yedi düğümlü bilezik. Her düğüm bir yarığı temsil eder. Mühürcülere göre yedi yarık kapanırsa dünya iyileşecektir.</p>
+
+          <h2 id="takvim">6. Zaman Çizelgesi</h2>
+          <table width="100%" cellpadding="4" style="border-collapse:collapse;font-size:12px">
+            <tr style="background:#6b1812;color:#fff"><th align="left" width="110">Tarih (YS)</th><th align="left">Olay</th></tr>
+            <tr style="background:#e2d4b8"><td>YS 0</td><td>Kızıl Yağmur başlar. 40 gün sürer.</td></tr>
+            <tr><td>YS 0</td><td>Yağmurun durduğu gece ilk yarıklar açılır. Demir Konsey kurulur.</td></tr>
+            <tr style="background:#e2d4b8"><td>YS 3</td><td>Kül Günü. Eski şehir yanar.</td></tr>
+            <tr><td>YS 4</td><td>Harran-ı Nev'in inşası başlar. Mühürcüler yasaklanır.</td></tr>
+            <tr style="background:#e2d4b8"><td>YS 11</td><td>Birinci Mühürleme. Büyük Yarık genişler.</td></tr>
+            <tr><td>YS 15</td><td>Levent Demirel kaybolur.</td></tr>
+            <tr style="background:#e2d4b8"><td><b>YS 18</b></td><td><b>Dizinin başladığı yıl.</b></td></tr>
+          </table>
+          <p class="smallfont" style="font-size:11px"><i>YS = "Yağmur'dan Sonra", Demir Konsey'in resmî takvimi. Mühürcüler yılları Kül Günü'nden sayar (KG). Bu yüzden dizideki bazı tarihler bir-üç yıl farklı görünebilir.</i></p>
+
+          <hr>
+          <div class="smallfont" style="font-size:10px;color:#6b5a47">Bu sayfa en son bugün 19:17'de <b>Arşivci_Nur</b> tarafından düzenlendi. &middot; <a href="#">Geçmiş</a> &middot; <a href="#">Tartışma</a> &middot; <a href="#">Düzenle</a></div>
+        </div>
       </div>
     </div>
-  </div>
+{% endblock %}
 
-</div>
-<script>altKisim();</script>
-</div>
-</body>
-</html>
+{% block breadcrumb_icerigi %}
+      <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <b>Lore Ansiklopedisi</b> &gt; Ana Sayfa
+      <span style="float:right" class="smallfont">Madde ara: <input type="text" size="18"> <input type="button" value="Git"></span>
+{% endblock %}

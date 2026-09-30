@@ -1,129 +1,119 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kızıl Yağmur - Lore Ansiklopedisi - dünyakanıyor.com</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='ortak.js') }}"></script>
-</head>
-<body>
-<div class="page">
-<script>ustKisim("lore");</script>
-<div class="icerik">
+{% extends "base.html" %}
 
-  <div class="breadcrumb">
-    <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <a href="{{ url_for('lore_sayfa') }}">Lore Ansiklopedisi</a> &gt; <a href="{{ url_for('lore_sayfa') }}#olaylar">Olaylar</a> &gt; <b>Kızıl Yağmur</b>
-  </div>
+{% block ustKisim_icerigi %}lore{% endblock %}
 
-  <div class="wiki">
-    <div class="yan">
-      <div class="wikibox">
-        <h3>&#9670; Bu Madde</h3>
-        <ul class="smallfont">
-          <li><a href="#">Maddeyi oku</a></li>
-          <li><a href="#">Düzenle</a></li>
-          <li><a href="#">Geçmiş (12 sürüm)</a></li>
-          <li><a href="{{ url_for('konu_sayfa') }}">Tartışma (forum)</a></li>
-        </ul>
-      </div>
-      <div class="wikibox">
-        <h3>&#9670; İlgili Maddeler</h3>
-        <ul class="smallfont">
-          <li><a href="{{ url_for('lore_sayfa') }}#kan-oz">Kan-Öz</a></li>
-          <li><a href="{{ url_for('lore_sayfa') }}#yerler">Büyük Yarık</a></li>
-          <li><a href="{{ url_for('lore_sayfa') }}#gruplar">Demir Konsey</a></li>
-          <li><a href="{{ url_for('lore_sayfa') }}#gruplar">Mühürcüler</a></li>
-          <li><a href="{{ url_for('lore_sayfa') }}#olaylar">Kül Günü</a></li>
-          <li><a href="{{ url_for('lore_sayfa') }}#takvim">Zaman Çizelgesi</a></li>
-        </ul>
-      </div>
-      <div class="wikibox">
-        <h3>&#9670; Göründüğü Bölümler</h3>
-        <ul class="smallfont">
-          <li><a href="{{ url_for('bolumler_sayfa') }}">S1B1 - Toprak Susmadı</a></li>
-          <li><a href="{{ url_for('bolumler_sayfa') }}">S1B3 - Kırk Gece</a></li>
-          <li><a href="{{ url_for('bolumler_sayfa') }}">S1B5 - Mühür</a></li>
-        </ul>
-      </div>
-    </div>
+{% block title %}
+KızılYagmur - Lore - DünyaKaniyorWeb 
+{% endblock %}
 
-    <div class="ana">
-      <div class="madde">
-        <table class="infobox" cellspacing="0">
-          <tr><th colspan="2">Kızıl Yağmur</th></tr>
-          <tr><td colspan="2" style="padding:0"><div class="resim">[ görsel: S1B3 geri dönüş sahnesi ]</div></td></tr>
-          <tr><td><b>Tür</b></td><td>Felaket / doğaüstü olay</td></tr>
-          <tr><td><b>Tarih</b></td><td>YS 0 (Konsey takvimi)<br>KG -3 (Mühürcü takvimi)</td></tr>
-          <tr><td><b>Süre</b></td><td>40 gün, 40 gece</td></tr>
-          <tr><td><b>Bölge</b></td><td>Bilinen tüm dünya</td></tr>
-          <tr><td><b>Sonuçları</b></td><td>Yarıkların açılması, Kan-Öz, Demir Konsey'in kuruluşu</td></tr>
-          <tr><td><b>Kanonluk</b></td><td><b style="color:#b3140f">[KANON]</b></td></tr>
-        </table>
-
-        <h1>Kızıl Yağmur</h1>
-        <div class="altbaslik">"Önce gök kanadı. Sonra sıra toprağa geldi." &mdash; Hüsnü Usta, S1B3</div>
-
-        <p><b>Kızıl Yağmur</b>, <i>Dünya Kanıyor</i> evreninin başlangıç noktası kabul edilen, kırk gün kırk gece süren kırmızı renkli yağış olayıdır.
-        Yağmur durduğu gece yeryüzünde ilk <a href="{{ url_for('lore_sayfa') }}#yerler">yarıklar</a> açılmış ve bu yarıklardan <a href="{{ url_for('lore_sayfa') }}#kan-oz">Kan-Öz</a> sızmaya başlamıştır.
-        Dizideki tüm çatışmaların kökeni bu olaya dayanır.</p>
-
-        <div class="toc"><b>İçindekiler</b>
-          <ol>
-            <li><a href="#k1">Olayın seyri</a></li>
-            <li><a href="#k2">Tanıklıklar</a></li>
-            <li><a href="#k3">Nedenine dair görüşler</a></li>
-            <li><a href="#k4">Sonuçları</a></li>
-            <li><a href="#k5">Kamera arkası</a></li>
-            <li><a href="#k6">Dipnotlar</a></li>
-          </ol>
+{% block icerik %}
+    <div class="wiki">
+      <div class="yan">
+        <div class="wikibox">
+          <h3>&#9670; Bu Madde</h3>
+          <ul class="smallfont">
+            <li><a href="#">Maddeyi oku</a></li>
+            <li><a href="#">Düzenle</a></li>
+            <li><a href="#">Geçmiş (12 sürüm)</a></li>
+            <li><a href="{{ url_for('konu_sayfa') }}">Tartışma (forum)</a></li>
+          </ul>
         </div>
+        <div class="wikibox">
+          <h3>&#9670; İlgili Maddeler</h3>
+          <ul class="smallfont">
+            <li><a href="{{ url_for('lore_sayfa') }}#kan-oz">Kan-Öz</a></li>
+            <li><a href="{{ url_for('lore_sayfa') }}#yerler">Büyük Yarık</a></li>
+            <li><a href="{{ url_for('lore_sayfa') }}#gruplar">Demir Konsey</a></li>
+            <li><a href="{{ url_for('lore_sayfa') }}#gruplar">Mühürcüler</a></li>
+            <li><a href="{{ url_for('lore_sayfa') }}#olaylar">Kül Günü</a></li>
+            <li><a href="{{ url_for('lore_sayfa') }}#takvim">Zaman Çizelgesi</a></li>
+          </ul>
+        </div>
+        <div class="wikibox">
+          <h3>&#9670; Göründüğü Bölümler</h3>
+          <ul class="smallfont">
+            <li><a href="{{ url_for('bolumler_sayfa') }}">S1B1 - Toprak Susmadı</a></li>
+            <li><a href="{{ url_for('bolumler_sayfa') }}">S1B3 - Kırk Gece</a></li>
+            <li><a href="{{ url_for('bolumler_sayfa') }}">S1B5 - Mühür</a></li>
+          </ul>
+        </div>
+      </div>
 
-        <h2 id="k1">1. Olayın seyri</h2>
-        <p>S1B3'teki geri dönüş sahnelerine göre yağmur bir sonbahar akşamı, önce hafif pembe bir çisenti olarak başladı. İlk üç gün insanlar bunu
-        çöl tozuna bağladı. Dördüncü günden itibaren yağmurun rengi koyulaştı ve suyun ılık olduğu fark edildi. Yedinci günde nehirler kırmızıya döndü.</p>
-        <p>Yağmur boyunca hiçbir canlı zarar görmedi; ancak hayvanların yağmur yağarken hep aynı yöne, kuzeye döndüğü görüldü. Bu ayrıntı
-        yıllar sonra Büyük Yarık'ın tam da o yönde açılmasıyla anlam kazanacaktır.</p>
-        <p>Kırkıncı gecenin sonunda yağmur aniden kesildi. Anlatıcıya göre <i>"sessizlik yağmurdan daha gürültülüydü"</i>. Sabaha karşı ilk çatlama sesleri duyuldu.</p>
+      <div class="ana">
+        <div class="madde">
+          <table class="infobox" cellspacing="0">
+            <tr><th colspan="2">Kızıl Yağmur</th></tr>
+            <tr><td colspan="2" style="padding:0"><div class="resim">[ görsel: S1B3 geri dönüş sahnesi ]</div></td></tr>
+            <tr><td><b>Tür</b></td><td>Felaket / doğaüstü olay</td></tr>
+            <tr><td><b>Tarih</b></td><td>YS 0 (Konsey takvimi)<br>KG -3 (Mühürcü takvimi)</td></tr>
+            <tr><td><b>Süre</b></td><td>40 gün, 40 gece</td></tr>
+            <tr><td><b>Bölge</b></td><td>Bilinen tüm dünya</td></tr>
+            <tr><td><b>Sonuçları</b></td><td>Yarıkların açılması, Kan-Öz, Demir Konsey'in kuruluşu</td></tr>
+            <tr><td><b>Kanonluk</b></td><td><b style="color:#b3140f">[KANON]</b></td></tr>
+          </table>
 
-        <h2 id="k2">2. Tanıklıklar</h2>
-        <blockquote>"Annem pencereleri kapattı, perdeleri çekti. Ama ses içeri giriyordu. Damlalar camda değil, sanki kafamızın içinde düşüyordu."<br>&mdash; Hüsnü Usta, S1B3</blockquote>
-        <blockquote>"O gece gökyüzüne bakanlar bir şey gördü. Ben bakmadım. İyi ki de bakmamışım."<br>&mdash; Başkan Oruç Tahir, S1B5</blockquote>
-        <p>Oruç Tahir'in bu sözü, hayran topluluğunda Kızıl Yağmur'un ilk gecesinde gökyüzünde bir şey görüldüğüne dair teorilerin doğmasına yol açmıştır.
-        (bkz. <a href="{{ url_for('forum_sayfa') }}">"Kızıl Yağmur doğal değildi - 5 kanıt"</a>)</p>
+          <h1>Kızıl Yağmur</h1>
+          <div class="altbaslik">"Önce gök kanadı. Sonra sıra toprağa geldi." &mdash; Hüsnü Usta, S1B3</div>
 
-        <h2 id="k3">3. Nedenine dair görüşler</h2>
-        <p>Dizi evreninde yağmurun nedeni hiçbir zaman kesin olarak açıklanmamıştır. Evren içindeki başlıca görüşler şunlardır:</p>
-        <ul>
-          <li><b>Konsey görüşü:</b> Yağmur, atmosferdeki "bilinmeyen bir mineral bulutunun" yoğunlaşmasıdır. Doğal bir afettir ve bilimle yönetilebilir.</li>
-          <li><b>Mühürcü görüşü:</b> İnsanlar toprağı yeterince yaraladığı için gök önce ağlamış, ardından toprak kanamaya başlamıştır. Yarıklar mühürlenirse yara kapanacaktır.</li>
-          <li><b>Halk inancı:</b> Harran-ı Nev'de yaşlılar, yağmurun "bir şeyin uyanması için" yağdığını söyler. Neyin uyandığı konusunda anlaşamazlar.</li>
-        </ul>
+          <p><b>Kızıl Yağmur</b>, <i>Dünya Kanıyor</i> evreninin başlangıç noktası kabul edilen, kırk gün kırk gece süren kırmızı renkli yağış olayıdır.
+          Yağmur durduğu gece yeryüzünde ilk <a href="{{ url_for('lore_sayfa') }}#yerler">yarıklar</a> açılmış ve bu yarıklardan <a href="{{ url_for('lore_sayfa') }}#kan-oz">Kan-Öz</a> sızmaya başlamıştır.
+          Dizideki tüm çatışmaların kökeni bu olaya dayanır.</p>
 
-        <h2 id="k4">4. Sonuçları</h2>
-        <p>Yağmurun durduğu gece <a href="{{ url_for('lore_sayfa') }}#gruplar">Demir Konsey</a> olağanüstü hâl ilan ederek kuruldu. İlk yıllarda Kan-Öz yalnızca bir tehlike olarak görülse de
-        arıtılabildiğinin keşfedilmesiyle kısa sürede şehrin enerjisi ve parası hâline geldi. Bu da Konsey'in gücünü kalıcı kıldı.</p>
-        <p>Yağmurdan sonraki ilk yıl doğan çocukların bir kısmında toprağı "duyma" yeteneği görüldü. Bu çocuklara zamanla <a href="{{ url_for('lore_sayfa') }}#gruplar">Yarık Çocukları</a> denmeye başlandı.</p>
+          <div class="toc"><b>İçindekiler</b>
+            <ol>
+              <li><a href="#k1">Olayın seyri</a></li>
+              <li><a href="#k2">Tanıklıklar</a></li>
+              <li><a href="#k3">Nedenine dair görüşler</a></li>
+              <li><a href="#k4">Sonuçları</a></li>
+              <li><a href="#k5">Kamera arkası</a></li>
+              <li><a href="#k6">Dipnotlar</a></li>
+            </ol>
+          </div>
 
-        <h2 id="k5">5. Kamera arkası</h2>
-        <p><b style="color:#e8b34d">[YARI-KANON]</b> Yapım ekibinin paylaştığı kamera arkası videosuna göre yağmur sahneleri, bahçe hortumuna bağlanan
-        kırmızı gıda boyası ile çekilmiştir. Yönetmen, yağmurun "neden yağdığı" sorusunun ilk sezonda bilerek cevapsız bırakıldığını söylemiştir.</p>
+          <h2 id="k1">1. Olayın seyri</h2>
+          <p>S1B3'teki geri dönüş sahnelerine göre yağmur bir sonbahar akşamı, önce hafif pembe bir çisenti olarak başladı. İlk üç gün insanlar bunu
+          çöl tozuna bağladı. Dördüncü günden itibaren yağmurun rengi koyulaştı ve suyun ılık olduğu fark edildi. Yedinci günde nehirler kırmızıya döndü.</p>
+          <p>Yağmur boyunca hiçbir canlı zarar görmedi; ancak hayvanların yağmur yağarken hep aynı yöne, kuzeye döndüğü görüldü. Bu ayrıntı
+          yıllar sonra Büyük Yarık'ın tam da o yönde açılmasıyla anlam kazanacaktır.</p>
+          <p>Kırkıncı gecenin sonunda yağmur aniden kesildi. Anlatıcıya göre <i>"sessizlik yağmurdan daha gürültülüydü"</i>. Sabaha karşı ilk çatlama sesleri duyuldu.</p>
 
-        <h2 id="k6">6. Dipnotlar</h2>
-        <ol style="font-size:11px">
-          <li>S1B3'te Kaan yağmurun "on yedi yıl önce" yağdığını söyler. Bu, Kaan'ın Mühürcü çevresinde büyüdüğü ve KG takvimini karıştırdığı şeklinde yorumlanır. Konsey takvimiyle olay YS 0'dır ve dizi YS 18'de geçer.</li>
-          <li>Kırk gün süresi S1B1'deki anlatıcı metninde ve S1B3'teki radyo anonsunda ayrı ayrı doğrulanmıştır.</li>
-        </ol>
+          <h2 id="k2">2. Tanıklıklar</h2>
+          <blockquote>"Annem pencereleri kapattı, perdeleri çekti. Ama ses içeri giriyordu. Damlalar camda değil, sanki kafamızın içinde düşüyordu."<br>&mdash; Hüsnü Usta, S1B3</blockquote>
+          <blockquote>"O gece gökyüzüne bakanlar bir şey gördü. Ben bakmadım. İyi ki de bakmamışım."<br>&mdash; Başkan Oruç Tahir, S1B5</blockquote>
+          <p>Oruç Tahir'in bu sözü, hayran topluluğunda Kızıl Yağmur'un ilk gecesinde gökyüzünde bir şey görüldüğüne dair teorilerin doğmasına yol açmıştır.
+          (bkz. <a href="{{ url_for('forum_sayfa') }}">"Kızıl Yağmur doğal değildi - 5 kanıt"</a>)</p>
 
-        <hr>
-        <div style="font-size:10px;color:#6b5a47">Kategori: <a href="{{ url_for('lore_sayfa') }}#olaylar">Olaylar</a> | <a href="#">Sezon 1</a> | <a href="#">Kanon</a><br>
-        Bu sayfa en son bugün 19:17'de <b>Arşivci_Nur</b> tarafından düzenlendi.</div>
+          <h2 id="k3">3. Nedenine dair görüşler</h2>
+          <p>Dizi evreninde yağmurun nedeni hiçbir zaman kesin olarak açıklanmamıştır. Evren içindeki başlıca görüşler şunlardır:</p>
+          <ul>
+            <li><b>Konsey görüşü:</b> Yağmur, atmosferdeki "bilinmeyen bir mineral bulutunun" yoğunlaşmasıdır. Doğal bir afettir ve bilimle yönetilebilir.</li>
+            <li><b>Mühürcü görüşü:</b> İnsanlar toprağı yeterince yaraladığı için gök önce ağlamış, ardından toprak kanamaya başlamıştır. Yarıklar mühürlenirse yara kapanacaktır.</li>
+            <li><b>Halk inancı:</b> Harran-ı Nev'de yaşlılar, yağmurun "bir şeyin uyanması için" yağdığını söyler. Neyin uyandığı konusunda anlaşamazlar.</li>
+          </ul>
+
+          <h2 id="k4">4. Sonuçları</h2>
+          <p>Yağmurun durduğu gece <a href="{{ url_for('lore_sayfa') }}#gruplar">Demir Konsey</a> olağanüstü hâl ilan ederek kuruldu. İlk yıllarda Kan-Öz yalnızca bir tehlike olarak görülse de
+          arıtılabildiğinin keşfedilmesiyle kısa sürede şehrin enerjisi ve parası hâline geldi. Bu da Konsey'in gücünü kalıcı kıldı.</p>
+          <p>Yağmurdan sonraki ilk yıl doğan çocukların bir kısmında toprağı "duyma" yeteneği görüldü. Bu çocuklara zamanla <a href="{{ url_for('lore_sayfa') }}#gruplar">Yarık Çocukları</a> denmeye başlandı.</p>
+
+          <h2 id="k5">5. Kamera arkası</h2>
+          <p><b style="color:#e8b34d">[YARI-KANON]</b> Yapım ekibinin paylaştığı kamera arkası videosuna göre yağmur sahneleri, bahçe hortumuna bağlanan
+          kırmızı gıda boyası ile çekilmiştir. Yönetmen, yağmurun "neden yağdığı" sorusunun ilk sezonda bilerek cevapsız bırakıldığını söylemiştir.</p>
+
+          <h2 id="k6">6. Dipnotlar</h2>
+          <ol style="font-size:11px">
+            <li>S1B3'te Kaan yağmurun "on yedi yıl önce" yağdığını söyler. Bu, Kaan'ın Mühürcü çevresinde büyüdüğü ve KG takvimini karıştırdığı şeklinde yorumlanır. Konsey takvimiyle olay YS 0'dır ve dizi YS 18'de geçer.</li>
+            <li>Kırk gün süresi S1B1'deki anlatıcı metninde ve S1B3'teki radyo anonsunda ayrı ayrı doğrulanmıştır.</li>
+          </ol>
+
+          <hr>
+          <div style="font-size:10px;color:#6b5a47">Kategori: <a href="{{ url_for('lore_sayfa') }}#olaylar">Olaylar</a> | <a href="#">Sezon 1</a> | <a href="#">Kanon</a><br>
+          Bu sayfa en son bugün 19:17'de <b>Arşivci_Nur</b> tarafından düzenlendi.</div>
+        </div>
       </div>
     </div>
-  </div>
+{% endblock %}
 
-</div>
-<script>altKisim();</script>
-</div>
-</body>
-</html>
+{% block breadcrumb_icerigi %}
+      <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <a href="{{ url_for('lore_sayfa') }}">Lore Ansiklopedisi</a> &gt; <a href="{{ url_for('lore_sayfa') }}#olaylar">Olaylar</a> &gt; <b>Kızıl Yağmur</b>
+{% endblock %}

@@ -1,170 +1,159 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>dünyakanıyor.com - Forum Ana Sayfa</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='ortak.js') }}"></script>
-</head>
-<body>
-<div class="page">
-<script>ustKisim("forum");</script>
+{% extends "base.html" %}
 
-<div class="icerik">
+{% block ustKisim_icerigi %}forum{% endblock %}
 
-  <div class="breadcrumb">
-    <table width="100%" cellspacing="0" cellpadding="0"><tr>
-      <td><span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com Forum</a></span><br>
-        <span class="smallfont">Hoş geldin, <b>Misafir</b>. Konu açmak ve sohbete katılmak için <a href="#">kayıt olmalısın</a>.</span></td>
-      <td class="right smallfont">Son ziyaretin: Bugün 16:42<br><a href="#">Yeni mesajları göster</a> | <a href="#">Tüm forumları okundu say</a></td>
+{% block title %}
+Forum - DünyaKaniyorWeb 
+{% endblock %}
+
+{% block icerik %}
+    <!-- SOHBET KUTUSU -->
+    <table class="tborder">
+      <tr><td class="tcat">&#9760; Sohbet Kutusu (Shoutbox) <span class="smallfont" style="font-weight:normal">&mdash; <a href="{{ url_for('sohbet_sayfa') }}">tam ekran sohbet odasına git &raquo;</a></span></td></tr>
+      <tr><td class="alt1">
+        <div class="shoutbox" id="sb"></div>
+        <form onsubmit="return sohbetGonder('sb','sbnick','sbmsg')" style="margin:5px 0 0">
+          Rumuz: <input type="text" id="sbnick" value="Misafir" size="12">
+          Mesaj: <input type="text" id="sbmsg" size="70" maxlength="200">
+          <input type="submit" value="Gönder" class="kirmizi">
+          <input type="button" value="Yenile" onclick="sohbetKutusu('sb')">
+        </form>
+      </td></tr>
+    </table>
+    <script>sohbetKutusu("sb");</script>
+
+    <!-- FORUM LİSTESİ -->
+    <table class="tborder">
+      <tr>
+        <td class="thead" width="36">&nbsp;</td>
+        <td class="thead">Forum</td>
+        <td class="thead" width="210">Son Mesaj</td>
+        <td class="thead center" width="55">Konular</td>
+        <td class="thead center" width="60">Mesajlar</td>
+      </tr>
+
+      <tr><td class="tcat" colspan="5">&#9632; Dünya Kanıyor &mdash; Genel</td></tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon kilit"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Duyurular &amp; Haberler</a><div class="desc">Yeni bölümler, yayın takvimi ve ekipten resmi açıklamalar. Sadece yönetim konu açabilir.</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>S1B6 "Yarık Açıldığında" yayın tarihi</b></a><br>Yazan <span class="u-admin">Kızıl_Mühürcü</span><br>Bugün 18:55</td>
+        <td class="alt2 center">14</td><td class="alt1 center">1.208</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Kurallar &amp; Tanışma</a><div class="desc">Foruma yeni katıldıysan önce kuralları oku, sonra kendini tanıt. Çaylaklar burada!</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Selam, Bursa'dan Kan_Ozu</b></a><br>Yazan <span class="u-uye">Kan_Ozu</span><br>Bugün 15:20</td>
+        <td class="alt2 center">312</td><td class="alt1 center">2.940</td>
+      </tr>
+
+      <tr><td class="tcat" colspan="5">&#9632; Dizi</td></tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Bölüm Tartışmaları <span class="red">[SPOILER]</span></a><div class="desc">Her bölüm için ayrı konu açılır. Yayınlanmış bölümlerle ilgili her şey konuşulabilir.</div>
+          <div class="smallfont muted">Alt forumlar: <a href="{{ url_for('forum_sayfa') }}">Sezon 1</a>, <a href="{{ url_for('forum_sayfa') }}">Özel Bölümler</a></div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>S1B5 - Mühür Kırıldı mı? [Tartışma]</b></a><br>Yazan <span class="u-uye">sessiz_tanık</span><br>Bugün 19:03</td>
+        <td class="alt2 center">46</td><td class="alt1 center">7.315</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Teoriler &amp; Spekülasyonlar</a><div class="desc">Kızıl Yağmur'u kim başlattı? Yarık nereye açılıyor? Çılgın teorilerini buraya dök.</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>TEORİ: Anlatıcı aslında Hüsnü Usta</b></a><br>Yazan <span class="u-uye">Ademin_Kulu</span><br>Bugün 17:48</td>
+        <td class="alt2 center">128</td><td class="alt1 center">4.902</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Fragmanlar &amp; Kamera Arkası</a><div class="desc">Çekim günlükleri, efekt yapımı, oyuncularla söyleşiler.</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Kan efekti nasıl yapıldı? (video)</b></a><br>Yazan <span class="u-mod">KülHatun</span><br>Dün 22:10</td>
+        <td class="alt2 center">37</td><td class="alt1 center">611</td>
+      </tr>
+
+      <tr><td class="tcat" colspan="5">&#9632; Lore &amp; Evren</td></tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Lore Soru &amp; Cevap</a><div class="desc">Evrenle ilgili merak ettiklerini sor; yazarlar ve arşivciler cevaplasın.</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Kan-Öz içilirse ne olur?</b></a><br>Yazan <span class="u-yazar">Arşivci_Nur</span><br>Bugün 18:30</td>
+        <td class="alt2 center">89</td><td class="alt1 center">1.577</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Ansiklopedi Katkı Masası</a><div class="desc"><a href="{{ url_for('lore_sayfa') }}">Lore Ansiklopedisi</a> için madde önerileri, düzeltmeler ve kaynak tartışmaları.</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Kızıl Yağmur tarih tutarsızlığı</b></a><br>Yazan <span class="u-yazar">Arşivci_Nur</span><br>Bugün 19:17</td>
+        <td class="alt2 center">23</td><td class="alt1 center">340</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Hayran Kurgu (Fanfic)</a><div class="desc">Evrende geçen kendi hikâyelerin. Resmi lore sayılmaz, ama ilham verebilir!</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>"Mühürsüz Gece" - Bölüm 4 eklendi</b></a><br>Yazan <span class="u-uye">KaranlıkKalem</span><br>2 gün önce</td>
+        <td class="alt2 center">41</td><td class="alt1 center">899</td>
+      </tr>
+
+      <tr><td class="tcat" colspan="5">&#9632; Hayran Köşesi</td></tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Fan Art &amp; Edit</a><div class="desc">Çizimler, avatarlar, imza resimleri, video editler.</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Demir Konsey arması (vektör)</b></a><br>Yazan <span class="u-uye">pikselKuzgun</span><br>Dün 14:02</td>
+        <td class="alt2 center">64</td><td class="alt1 center">720</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Rol Yapma (RP) Salonu</a><div class="desc">Kendi karakterinle Kül Şehir sokaklarında dolaş. RP kurallarına dikkat!</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>[RP] Harran-ı Nev pazar yeri - Açık</b></a><br>Yazan <span class="u-uye">yarikcocugu_34</span><br>Bugün 16:11</td>
+        <td class="alt2 center">19</td><td class="alt1 center">3.144</td>
+      </tr>
+
+      <tr><td class="tcat" colspan="5">&#9632; Diğer</td></tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Serbest Kürsü</a><div class="desc">Diziyle ilgisi olmayan her şey. Film, oyun, müzik, dertleşme...</div></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>En sevdiğiniz korku filmi?</b></a><br>Yazan <span class="u-uye">gececi_kedi</span><br>Bugün 12:40</td>
+        <td class="alt2 center">201</td><td class="alt1 center">5.066</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon kilit"></span></td>
+        <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Çöplük</a><div class="desc">Silinen / kilitlenen konular burada çürür.</div></td>
+        <td class="alt1 smallfont muted">&mdash;</td>
+        <td class="alt2 center">58</td><td class="alt1 center">402</td>
+      </tr>
+    </table>
+
+    <!-- KİMLER ÇEVRİMİÇİ / İSTATİSTİK -->
+    <table class="tborder">
+      <tr><td class="tcat" colspan="2">Neler Oluyor? dünyakanıyor.com</td></tr>
+      <tr><td class="thead" colspan="2">Şu an aktif kullanıcılar: 47 (9 üye, 38 misafir)</td></tr>
+      <tr>
+        <td class="alt2 center" width="36"><span class="ficon eski" style="width:24px;height:24px"></span></td>
+        <td class="alt1 smallfont">
+          <span class="u-admin">Kızıl_Mühürcü</span>, <span class="u-mod">KülHatun</span>, <span class="u-yazar">Arşivci_Nur</span>,
+          <a class="u-uye" href="{{ url_for('uye_sayfa') }}">yarikcocugu_34</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Ademin_Kulu</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">sessiz_tanık</a>,
+          <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Kan_Ozu</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">gececi_kedi</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">pikselKuzgun</a><br>
+          <span class="muted">En çok aynı anda çevrimiçi: 412 kişi, 14.09.2026 21:03 (S1B5 yayın gecesi)</span><br>
+          Renkler: <span class="u-admin">Yönetici</span> &middot; <span class="u-mod">Moderatör</span> &middot; <span class="u-yazar">Lore Yazarı</span> &middot; <span class="u-uye">Üye</span>
+        </td>
+      </tr>
+      <tr><td class="thead" colspan="2">dünyakanıyor.com İstatistikleri</td></tr>
+      <tr>
+        <td class="alt2 center"><span class="ficon eski" style="width:24px;height:24px"></span></td>
+        <td class="alt1 smallfont">Konular: 1.032, Mesajlar: 29.124, Üyeler: 2.716<br>Aramıza en son katılan üyemiz: <a href="{{ url_for('uye_sayfa') }}">cam_kirigi</a> &mdash; hoş geldin!</td>
+      </tr>
+      <tr><td class="thead" colspan="2">Bugün Doğum Günü Olanlar</td></tr>
+      <tr>
+        <td class="alt2 center"><span class="ficon eski" style="width:24px;height:24px"></span></td>
+        <td class="alt1 smallfont"><a href="{{ url_for('uye_sayfa') }}">gececi_kedi</a> (24), <a href="{{ url_for('uye_sayfa') }}">Mühür_Bekçisi</a> (31)</td>
+      </tr>
+    </table>
+
+    <table width="100%" class="smallfont"><tr>
+      <td><span class="ficon" style="width:14px;height:14px;vertical-align:middle"></span> Yeni mesaj var &nbsp;
+          <span class="ficon eski" style="width:14px;height:14px;vertical-align:middle"></span> Yeni mesaj yok &nbsp;
+          <span class="ficon kilit" style="width:14px;height:14px;vertical-align:middle"></span> Kilitli forum</td>
+      <td class="right">Forum Zaman Dilimi GMT +3 &middot; <a href="#">Tüm çerezleri sil</a> &middot; <a href="#">Yönetim ekibi</a></td>
     </tr></table>
-  </div>
+{% endblock %}
 
-  <!-- SOHBET KUTUSU -->
-  <table class="tborder">
-    <tr><td class="tcat">&#9760; Sohbet Kutusu (Shoutbox) <span class="smallfont" style="font-weight:normal">&mdash; <a href="{{ url_for('sohbet_sayfa') }}">tam ekran sohbet odasına git &raquo;</a></span></td></tr>
-    <tr><td class="alt1">
-      <div class="shoutbox" id="sb"></div>
-      <form onsubmit="return sohbetGonder('sb','sbnick','sbmsg')" style="margin:5px 0 0">
-        Rumuz: <input type="text" id="sbnick" value="Misafir" size="12">
-        Mesaj: <input type="text" id="sbmsg" size="70" maxlength="200">
-        <input type="submit" value="Gönder" class="kirmizi">
-        <input type="button" value="Yenile" onclick="sohbetKutusu('sb')">
-      </form>
-    </td></tr>
-  </table>
-  <script>sohbetKutusu("sb");</script>
-
-  <!-- FORUM LİSTESİ -->
-  <table class="tborder">
-    <tr>
-      <td class="thead" width="36">&nbsp;</td>
-      <td class="thead">Forum</td>
-      <td class="thead" width="210">Son Mesaj</td>
-      <td class="thead center" width="55">Konular</td>
-      <td class="thead center" width="60">Mesajlar</td>
-    </tr>
-
-    <tr><td class="tcat" colspan="5">&#9632; Dünya Kanıyor &mdash; Genel</td></tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon kilit"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Duyurular &amp; Haberler</a><div class="desc">Yeni bölümler, yayın takvimi ve ekipten resmi açıklamalar. Sadece yönetim konu açabilir.</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>S1B6 "Yarık Açıldığında" yayın tarihi</b></a><br>Yazan <span class="u-admin">Kızıl_Mühürcü</span><br>Bugün 18:55</td>
-      <td class="alt2 center">14</td><td class="alt1 center">1.208</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Kurallar &amp; Tanışma</a><div class="desc">Foruma yeni katıldıysan önce kuralları oku, sonra kendini tanıt. Çaylaklar burada!</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Selam, Bursa'dan Kan_Ozu</b></a><br>Yazan <span class="u-uye">Kan_Ozu</span><br>Bugün 15:20</td>
-      <td class="alt2 center">312</td><td class="alt1 center">2.940</td>
-    </tr>
-
-    <tr><td class="tcat" colspan="5">&#9632; Dizi</td></tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Bölüm Tartışmaları <span class="red">[SPOILER]</span></a><div class="desc">Her bölüm için ayrı konu açılır. Yayınlanmış bölümlerle ilgili her şey konuşulabilir.</div>
-        <div class="smallfont muted">Alt forumlar: <a href="{{ url_for('forum_sayfa') }}">Sezon 1</a>, <a href="{{ url_for('forum_sayfa') }}">Özel Bölümler</a></div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>S1B5 - Mühür Kırıldı mı? [Tartışma]</b></a><br>Yazan <span class="u-uye">sessiz_tanık</span><br>Bugün 19:03</td>
-      <td class="alt2 center">46</td><td class="alt1 center">7.315</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Teoriler &amp; Spekülasyonlar</a><div class="desc">Kızıl Yağmur'u kim başlattı? Yarık nereye açılıyor? Çılgın teorilerini buraya dök.</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>TEORİ: Anlatıcı aslında Hüsnü Usta</b></a><br>Yazan <span class="u-uye">Ademin_Kulu</span><br>Bugün 17:48</td>
-      <td class="alt2 center">128</td><td class="alt1 center">4.902</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Fragmanlar &amp; Kamera Arkası</a><div class="desc">Çekim günlükleri, efekt yapımı, oyuncularla söyleşiler.</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Kan efekti nasıl yapıldı? (video)</b></a><br>Yazan <span class="u-mod">KülHatun</span><br>Dün 22:10</td>
-      <td class="alt2 center">37</td><td class="alt1 center">611</td>
-    </tr>
-
-    <tr><td class="tcat" colspan="5">&#9632; Lore &amp; Evren</td></tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Lore Soru &amp; Cevap</a><div class="desc">Evrenle ilgili merak ettiklerini sor; yazarlar ve arşivciler cevaplasın.</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Kan-Öz içilirse ne olur?</b></a><br>Yazan <span class="u-yazar">Arşivci_Nur</span><br>Bugün 18:30</td>
-      <td class="alt2 center">89</td><td class="alt1 center">1.577</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Ansiklopedi Katkı Masası</a><div class="desc"><a href="{{ url_for('lore_sayfa') }}">Lore Ansiklopedisi</a> için madde önerileri, düzeltmeler ve kaynak tartışmaları.</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Kızıl Yağmur tarih tutarsızlığı</b></a><br>Yazan <span class="u-yazar">Arşivci_Nur</span><br>Bugün 19:17</td>
-      <td class="alt2 center">23</td><td class="alt1 center">340</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Hayran Kurgu (Fanfic)</a><div class="desc">Evrende geçen kendi hikâyelerin. Resmi lore sayılmaz, ama ilham verebilir!</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>"Mühürsüz Gece" - Bölüm 4 eklendi</b></a><br>Yazan <span class="u-uye">KaranlıkKalem</span><br>2 gün önce</td>
-      <td class="alt2 center">41</td><td class="alt1 center">899</td>
-    </tr>
-
-    <tr><td class="tcat" colspan="5">&#9632; Hayran Köşesi</td></tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Fan Art &amp; Edit</a><div class="desc">Çizimler, avatarlar, imza resimleri, video editler.</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>Demir Konsey arması (vektör)</b></a><br>Yazan <span class="u-uye">pikselKuzgun</span><br>Dün 14:02</td>
-      <td class="alt2 center">64</td><td class="alt1 center">720</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Rol Yapma (RP) Salonu</a><div class="desc">Kendi karakterinle Kül Şehir sokaklarında dolaş. RP kurallarına dikkat!</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>[RP] Harran-ı Nev pazar yeri - Açık</b></a><br>Yazan <span class="u-uye">yarikcocugu_34</span><br>Bugün 16:11</td>
-      <td class="alt2 center">19</td><td class="alt1 center">3.144</td>
-    </tr>
-
-    <tr><td class="tcat" colspan="5">&#9632; Diğer</td></tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Serbest Kürsü</a><div class="desc">Diziyle ilgisi olmayan her şey. Film, oyun, müzik, dertleşme...</div></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('konu_sayfa') }}"><b>En sevdiğiniz korku filmi?</b></a><br>Yazan <span class="u-uye">gececi_kedi</span><br>Bugün 12:40</td>
-      <td class="alt2 center">201</td><td class="alt1 center">5.066</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon kilit"></span></td>
-      <td class="alt2"><a class="forumtitle" href="{{ url_for('forum_sayfa') }}">Çöplük</a><div class="desc">Silinen / kilitlenen konular burada çürür.</div></td>
-      <td class="alt1 smallfont muted">&mdash;</td>
-      <td class="alt2 center">58</td><td class="alt1 center">402</td>
-    </tr>
-  </table>
-
-  <!-- KİMLER ÇEVRİMİÇİ / İSTATİSTİK -->
-  <table class="tborder">
-    <tr><td class="tcat" colspan="2">Neler Oluyor? dünyakanıyor.com</td></tr>
-    <tr><td class="thead" colspan="2">Şu an aktif kullanıcılar: 47 (9 üye, 38 misafir)</td></tr>
-    <tr>
-      <td class="alt2 center" width="36"><span class="ficon eski" style="width:24px;height:24px"></span></td>
-      <td class="alt1 smallfont">
-        <span class="u-admin">Kızıl_Mühürcü</span>, <span class="u-mod">KülHatun</span>, <span class="u-yazar">Arşivci_Nur</span>,
-        <a class="u-uye" href="{{ url_for('uye_sayfa') }}">yarikcocugu_34</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Ademin_Kulu</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">sessiz_tanık</a>,
-        <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Kan_Ozu</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">gececi_kedi</a>, <a class="u-uye" href="{{ url_for('uye_sayfa') }}">pikselKuzgun</a><br>
-        <span class="muted">En çok aynı anda çevrimiçi: 412 kişi, 14.09.2026 21:03 (S1B5 yayın gecesi)</span><br>
-        Renkler: <span class="u-admin">Yönetici</span> &middot; <span class="u-mod">Moderatör</span> &middot; <span class="u-yazar">Lore Yazarı</span> &middot; <span class="u-uye">Üye</span>
-      </td>
-    </tr>
-    <tr><td class="thead" colspan="2">dünyakanıyor.com İstatistikleri</td></tr>
-    <tr>
-      <td class="alt2 center"><span class="ficon eski" style="width:24px;height:24px"></span></td>
-      <td class="alt1 smallfont">Konular: 1.032, Mesajlar: 29.124, Üyeler: 2.716<br>Aramıza en son katılan üyemiz: <a href="{{ url_for('uye_sayfa') }}">cam_kirigi</a> &mdash; hoş geldin!</td>
-    </tr>
-    <tr><td class="thead" colspan="2">Bugün Doğum Günü Olanlar</td></tr>
-    <tr>
-      <td class="alt2 center"><span class="ficon eski" style="width:24px;height:24px"></span></td>
-      <td class="alt1 smallfont"><a href="{{ url_for('uye_sayfa') }}">gececi_kedi</a> (24), <a href="{{ url_for('uye_sayfa') }}">Mühür_Bekçisi</a> (31)</td>
-    </tr>
-  </table>
-
-  <table width="100%" class="smallfont"><tr>
-    <td><span class="ficon" style="width:14px;height:14px;vertical-align:middle"></span> Yeni mesaj var &nbsp;
-        <span class="ficon eski" style="width:14px;height:14px;vertical-align:middle"></span> Yeni mesaj yok &nbsp;
-        <span class="ficon kilit" style="width:14px;height:14px;vertical-align:middle"></span> Kilitli forum</td>
-    <td class="right">Forum Zaman Dilimi GMT +3 &middot; <a href="#">Tüm çerezleri sil</a> &middot; <a href="#">Yönetim ekibi</a></td>
-  </tr></table>
-
-</div>
-<script>altKisim();</script>
-</div>
-</body>
-</html>
+{% block breadcrumb_icerigi %}
+      <table width="100%" cellspacing="0" cellpadding="0"><tr>
+        <td><span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com Forum</a></span><br>
+          <span class="smallfont">Hoş geldin, <b>Misafir</b>. Konu açmak ve sohbete katılmak için <a href="#">kayıt olmalısın</a>.</span></td>
+        <td class="right smallfont">Son ziyaretin: Bugün 16:42<br><a href="#">Yeni mesajları göster</a> | <a href="#">Tüm forumları okundu say</a></td>
+      </tr></table>
+{% endblock %}

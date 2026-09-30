@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}DÜNYA GENELİ BAŞLIK{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='ortak.js') }}"></script>
+</head>
+<body>
+    <div class="page">
+    <script>ustKisim("{% block ustKisim_icerigi %}{% endblock %}");</script>
+    <div class="icerik">
+
+        <div class="breadcrumb">
+            {% block breadcrumb_icerigi %}
+            
+            {% endblock %}
+        </div>
+    {% block icerik %}
+
+    {% endblock %}
+    </div>
+    <script>altKisim();</script>
+    </div>
+</body>
+</html>

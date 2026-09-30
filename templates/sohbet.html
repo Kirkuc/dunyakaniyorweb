@@ -1,66 +1,56 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sohbet Odası - dünyakanıyor.com</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='ortak.js') }}"></script>
-</head>
-<body>
-<div class="page">
-<script>ustKisim("sohbet");</script>
-<div class="icerik">
+{% extends "base.html" %}
 
-  <div class="breadcrumb">
-    <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <b>Sohbet Odası</b>
-  </div>
+{% block ustKisim_icerigi %}sohbet{% endblock %}
 
-  <table class="tborder">
-    <tr>
-      <td class="tcat" colspan="2">&#9760; #genel &mdash; Kül Şehir Meydanı
-        <span class="smallfont" style="float:right;font-weight:normal">Odalar:
-          <b>[#genel]</b> <a href="#">[#spoiler]</a> <a href="#">[#teori]</a> <a href="#">[#rp]</a> <a href="#">[#serbest]</a></span>
-      </td>
-    </tr>
-    <tr>
-      <td class="alt1">
-        <div class="shoutbox buyuk" id="oda"></div>
-      </td>
-      <td class="alt2" width="170">
-        <div class="thead" style="margin:-6px -6px 6px">Odada (9)</div>
-        <div class="smallfont" style="line-height:1.8">
-          @<span class="u-admin">Kızıl_Mühürcü</span><br>
-          @<span class="u-mod">KülHatun</span><br>
-          +<span class="u-yazar">Arşivci_Nur</span><br>
-          <a class="u-uye" href="{{ url_for('uye_sayfa') }}">yarikcocugu_34</a><br>
-          <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Ademin_Kulu</a><br>
-          <a class="u-uye" href="{{ url_for('uye_sayfa') }}">sessiz_tanık</a><br>
-          <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Kan_Ozu</a><br>
-          <a class="u-uye" href="{{ url_for('uye_sayfa') }}">gececi_kedi</a> <span class="muted">(uzakta)</span><br>
-          <span class="muted">Misafir_4821</span>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td class="alt2" colspan="2">
-        <form onsubmit="return sohbetGonder('oda','nick','msg')">
-          Rumuz: <input type="text" id="nick" value="Misafir" size="14">
-          <input type="text" id="msg" size="80" maxlength="300" placeholder="Mesajını yaz ve Enter'a bas...">
-          <input type="submit" class="kirmizi" value="Gönder">
-          <input type="button" value="Kendi mesajlarımı temizle" onclick="sohbetTemizle('oda')">
-        </form>
-        <div class="smallfont muted" style="margin-top:4px">
-          Oda kuralları: küfür, reklam ve <b>etiketsiz spoiler</b> yasak. Yeni bölüm spoiler'ları için #spoiler odasına geç. &nbsp;|&nbsp;
-          <i>Taslak notu: şu an yazdığın mesajlar sadece senin tarayıcında saklanıyor; gerçek çok kullanıcılı sohbet için sunucu gerekiyor.</i>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <script>sohbetKutusu("oda");</script>
+{% block title %}
+Sohbet - DünyaKaniyorWeb 
+{% endblock %}
 
-</div>
-<script>altKisim();</script>
-</div>
-</body>
-</html>
+{% block icerik %}
+    <table class="tborder">
+      <tr>
+        <td class="tcat" colspan="2">&#9760; #genel &mdash; Kül Şehir Meydanı
+          <span class="smallfont" style="float:right;font-weight:normal">Odalar:
+            <b>[#genel]</b> <a href="#">[#spoiler]</a> <a href="#">[#teori]</a> <a href="#">[#rp]</a> <a href="#">[#serbest]</a></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="alt1">
+          <div class="shoutbox buyuk" id="oda"></div>
+        </td>
+        <td class="alt2" width="170">
+          <div class="thead" style="margin:-6px -6px 6px">Odada (9)</div>
+          <div class="smallfont" style="line-height:1.8">
+            @<span class="u-admin">Kızıl_Mühürcü</span><br>
+            @<span class="u-mod">KülHatun</span><br>
+            +<span class="u-yazar">Arşivci_Nur</span><br>
+            <a class="u-uye" href="{{ url_for('uye_sayfa') }}">yarikcocugu_34</a><br>
+            <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Ademin_Kulu</a><br>
+            <a class="u-uye" href="{{ url_for('uye_sayfa') }}">sessiz_tanık</a><br>
+            <a class="u-uye" href="{{ url_for('uye_sayfa') }}">Kan_Ozu</a><br>
+            <a class="u-uye" href="{{ url_for('uye_sayfa') }}">gececi_kedi</a> <span class="muted">(uzakta)</span><br>
+            <span class="muted">Misafir_4821</span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="alt2" colspan="2">
+          <form onsubmit="return sohbetGonder('oda','nick','msg')">
+            Rumuz: <input type="text" id="nick" value="Misafir" size="14">
+            <input type="text" id="msg" size="80" maxlength="300" placeholder="Mesajını yaz ve Enter'a bas...">
+            <input type="submit" class="kirmizi" value="Gönder">
+            <input type="button" value="Kendi mesajlarımı temizle" onclick="sohbetTemizle('oda')">
+          </form>
+          <div class="smallfont muted" style="margin-top:4px">
+            Oda kuralları: küfür, reklam ve <b>etiketsiz spoiler</b> yasak. Yeni bölüm spoiler'ları için #spoiler odasına geç. &nbsp;|&nbsp;
+            <i>Taslak notu: şu an yazdığın mesajlar sadece senin tarayıcında saklanıyor; gerçek çok kullanıcılı sohbet için sunucu gerekiyor.</i>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <script>sohbetKutusu("oda");</script>
+{% endblock %}
+
+{% block breadcrumb_icerigi %}
+  <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com</a></span> &gt; <b>Sohbet Odası</b>
+{% endblock %}

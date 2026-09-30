@@ -1,124 +1,115 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Teoriler &amp; Spekülasyonlar - dünyakanıyor.com</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='ortak.js') }}"></script>
-</head>
-<body>
-<div class="page">
-<script>ustKisim("forum");</script>
-<div class="icerik">
+{% extends "base.html" %}
 
-  <div class="breadcrumb">
-    <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com Forum</a></span> &gt; <a href="{{ url_for('ana_sayfa') }}">Dizi</a> &gt;
-    <b>Teoriler &amp; Spekülasyonlar</b>
-  </div>
+{% block ustKisim_icerigi %}forum{% endblock %}
 
-  <table width="100%" style="margin-bottom:6px"><tr>
-    <td><input type="button" class="kirmizi" value="+ Yeni Konu Aç" onclick="alert('Taslak: konu açma formu henüz bağlı değil.')"></td>
-    <td class="right">
-      <table class="pagenav" cellspacing="1"><tr>
-        <td>Sayfa 1 / 7</td><td class="cur">1</td><td><a href="#">2</a></td><td><a href="#">3</a></td><td><a href="#">&raquo;</a></td><td><a href="#">Son &raquo;</a></td>
-      </tr></table>
-    </td>
-  </tr></table>
+{% block title %}
+Forum - DünyaKaniyorWeb 
+{% endblock %}
 
-  <table class="tborder">
-    <tr><td class="tcat" colspan="6">Teoriler &amp; Spekülasyonlar <span class="smallfont" style="font-weight:normal">(bu forumu şu an 12 kişi okuyor)</span></td></tr>
-    <tr>
-      <td class="thead" width="30">&nbsp;</td>
-      <td class="thead">Konu / Konuyu Açan</td>
-      <td class="thead" width="170">Son Mesaj</td>
-      <td class="thead center" width="50">Cevap</td>
-      <td class="thead center" width="50">Gösterim</td>
-      <td class="thead center" width="60">Puan</td>
-    </tr>
+{% block icerik %}
+    <table width="100%" style="margin-bottom:6px"><tr>
+      <td><input type="button" class="kirmizi" value="+ Yeni Konu Aç" onclick="alert('Taslak: konu açma formu henüz bağlı değil.')"></td>
+      <td class="right">
+        <table class="pagenav" cellspacing="1"><tr>
+          <td>Sayfa 1 / 7</td><td class="cur">1</td><td><a href="#">2</a></td><td><a href="#">3</a></td><td><a href="#">&raquo;</a></td><td><a href="#">Son &raquo;</a></td>
+        </tr></table>
+      </td>
+    </tr></table>
 
-    <tr><td class="thead" colspan="6" style="background:#4b1a14">Sabit Konular</td></tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon kilit" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><b>Sabit:</b> <a href="{{ url_for('konu_sayfa') }}"><b>Teori açarken uyulacak kurallar (OKUMADAN KONU AÇMAYIN)</b></a><div class="smallfont muted"><span class="u-mod">KülHatun</span></div></td>
-      <td class="alt1 smallfont">12.08.2026 10:00<br>Yazan <span class="u-mod">KülHatun</span></td>
-      <td class="alt2 center">0</td><td class="alt1 center">3.411</td><td class="alt2 center">&mdash;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><b>Sabit:</b> <a href="{{ url_for('konu_sayfa') }}"><b>Büyük Teori Arşivi (onaylanan / çürütülen teoriler listesi)</b></a><div class="smallfont muted"><span class="u-yazar">Arşivci_Nur</span> &nbsp; <span class="smallfont">( <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> )</span></div></td>
-      <td class="alt1 smallfont">Bugün 11:05<br>Yazan <span class="u-yazar">Arşivci_Nur</span></td>
-      <td class="alt2 center">58</td><td class="alt1 center">6.022</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
-    </tr>
+    <table class="tborder">
+      <tr><td class="tcat" colspan="6">Teoriler &amp; Spekülasyonlar <span class="smallfont" style="font-weight:normal">(bu forumu şu an 12 kişi okuyor)</span></td></tr>
+      <tr>
+        <td class="thead" width="30">&nbsp;</td>
+        <td class="thead">Konu / Konuyu Açan</td>
+        <td class="thead" width="170">Son Mesaj</td>
+        <td class="thead center" width="50">Cevap</td>
+        <td class="thead center" width="50">Gösterim</td>
+        <td class="thead center" width="60">Puan</td>
+      </tr>
 
-    <tr><td class="thead" colspan="6" style="background:#4b1a14">Normal Konular</td></tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>TEORİ: Anlatıcı aslında Hüsnü Usta</b></a> <span class="red smallfont">[SICAK]</span><div class="smallfont muted">Ademin_Kulu &nbsp; ( <a href="{{ url_for('konu_sayfa') }}">1</a> <a href="{{ url_for('konu_sayfa') }}">2</a> )</div></td>
-      <td class="alt1 smallfont">Bugün 17:48<br>Yazan <a href="{{ url_for('uye_sayfa') }}">yarikcocugu_34</a></td>
-      <td class="alt2 center">24</td><td class="alt1 center">812</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Levent ölmedi, Yarık'ın öbür tarafında</b></a><div class="smallfont muted">sessiz_tanık</div></td>
-      <td class="alt1 smallfont">Bugün 16:02<br>Yazan <a href="{{ url_for('uye_sayfa') }}">Kan_Ozu</a></td>
-      <td class="alt2 center">41</td><td class="alt1 center">1.390</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Kızıl Yağmur doğal değildi - 5 kanıt</b></a> <span class="smallfont" title="Dosya eki var">&#128206;</span><div class="smallfont muted">gececi_kedi</div></td>
-      <td class="alt1 smallfont">Dün 23:40<br>Yazan <span class="u-yazar">Arşivci_Nur</span></td>
-      <td class="alt2 center">17</td><td class="alt1 center">655</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Demir Konsey armasındaki üç çizgi ne anlama geliyor?</b></a><div class="smallfont muted">pikselKuzgun</div></td>
-      <td class="alt1 smallfont">Dün 20:15<br>Yazan <a href="{{ url_for('uye_sayfa') }}">Ademin_Kulu</a></td>
-      <td class="alt2 center">9</td><td class="alt1 center">288</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Selvi aslında Mühürcülere ihanet edecek (S1B5 spoiler)</b></a><div class="smallfont muted">cam_kirigi</div></td>
-      <td class="alt1 smallfont">Dün 18:00<br>Yazan <a href="{{ url_for('uye_sayfa') }}">gececi_kedi</a></td>
-      <td class="alt2 center">12</td><td class="alt1 center">402</td><td class="alt2 center gold">&#9733;&#9733;&#9734;&#9734;&#9734;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Kan-Öz'ün fısıltıları gerçek bir dil mi?</b></a><div class="smallfont muted">Mühür_Bekçisi</div></td>
-      <td class="alt1 smallfont">3 gün önce<br>Yazan <a href="{{ url_for('uye_sayfa') }}">sessiz_tanık</a></td>
-      <td class="alt2 center">33</td><td class="alt1 center">1.021</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Jenerikteki harita ters çevrilince...</b></a><div class="smallfont muted">yarikcocugu_34</div></td>
-      <td class="alt1 smallfont">4 gün önce<br>Yazan <a href="{{ url_for('uye_sayfa') }}">pikselKuzgun</a></td>
-      <td class="alt2 center">6</td><td class="alt1 center">199</td><td class="alt2 center gold">&#9733;&#9733;&#9734;&#9734;&#9734;</td>
-    </tr>
-    <tr>
-      <td class="alt1 center"><span class="ficon kilit" style="width:20px;height:20px"></span></td>
-      <td class="alt2"><b>Kilitli:</b> <a href="{{ url_for('konu_sayfa') }}">bölüm 6 sızdırıldı link burda!!!</a><div class="smallfont muted">spamci_99</div></td>
-      <td class="alt1 smallfont">5 gün önce<br>Yazan <span class="u-mod">KülHatun</span></td>
-      <td class="alt2 center">1</td><td class="alt1 center">77</td><td class="alt2 center">&mdash;</td>
-    </tr>
-  </table>
+      <tr><td class="thead" colspan="6" style="background:#4b1a14">Sabit Konular</td></tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon kilit" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><b>Sabit:</b> <a href="{{ url_for('konu_sayfa') }}"><b>Teori açarken uyulacak kurallar (OKUMADAN KONU AÇMAYIN)</b></a><div class="smallfont muted"><span class="u-mod">KülHatun</span></div></td>
+        <td class="alt1 smallfont">12.08.2026 10:00<br>Yazan <span class="u-mod">KülHatun</span></td>
+        <td class="alt2 center">0</td><td class="alt1 center">3.411</td><td class="alt2 center">&mdash;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><b>Sabit:</b> <a href="{{ url_for('konu_sayfa') }}"><b>Büyük Teori Arşivi (onaylanan / çürütülen teoriler listesi)</b></a><div class="smallfont muted"><span class="u-yazar">Arşivci_Nur</span> &nbsp; <span class="smallfont">( <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> )</span></div></td>
+        <td class="alt1 smallfont">Bugün 11:05<br>Yazan <span class="u-yazar">Arşivci_Nur</span></td>
+        <td class="alt2 center">58</td><td class="alt1 center">6.022</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+      </tr>
 
-  <table class="tborder" style="width:auto;float:right">
-    <tr><td class="thead">Forum Seçenekleri</td></tr>
-    <tr><td class="alt1 smallfont">
-      Sırala: <select><option>Son mesaj tarihi</option><option>Konu başlığı</option><option>Cevap sayısı</option><option>Puan</option></select>
-      <select><option>Azalan</option><option>Artan</option></select>
-      <select><option>Tüm zamanlar</option><option>Son 7 gün</option><option>Son 30 gün</option></select>
-      <input type="button" value="Göster">
-    </td></tr>
-  </table>
-  <div class="smallfont">
-    <b>Mesaj izinlerin</b><br>
-    Yeni konu açamazsın<br>Cevap yazamazsın<br>Dosya ekleyemezsin<br>BB kodları <b>açık</b> &middot; Smiley <b>açık</b> &middot; HTML <b>kapalı</b>
-  </div>
-  <div class="clear"></div>
+      <tr><td class="thead" colspan="6" style="background:#4b1a14">Normal Konular</td></tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>TEORİ: Anlatıcı aslında Hüsnü Usta</b></a> <span class="red smallfont">[SICAK]</span><div class="smallfont muted">Ademin_Kulu &nbsp; ( <a href="{{ url_for('konu_sayfa') }}">1</a> <a href="{{ url_for('konu_sayfa') }}">2</a> )</div></td>
+        <td class="alt1 smallfont">Bugün 17:48<br>Yazan <a href="{{ url_for('uye_sayfa') }}">yarikcocugu_34</a></td>
+        <td class="alt2 center">24</td><td class="alt1 center">812</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Levent ölmedi, Yarık'ın öbür tarafında</b></a><div class="smallfont muted">sessiz_tanık</div></td>
+        <td class="alt1 smallfont">Bugün 16:02<br>Yazan <a href="{{ url_for('uye_sayfa') }}">Kan_Ozu</a></td>
+        <td class="alt2 center">41</td><td class="alt1 center">1.390</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Kızıl Yağmur doğal değildi - 5 kanıt</b></a> <span class="smallfont" title="Dosya eki var">&#128206;</span><div class="smallfont muted">gececi_kedi</div></td>
+        <td class="alt1 smallfont">Dün 23:40<br>Yazan <span class="u-yazar">Arşivci_Nur</span></td>
+        <td class="alt2 center">17</td><td class="alt1 center">655</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Demir Konsey armasındaki üç çizgi ne anlama geliyor?</b></a><div class="smallfont muted">pikselKuzgun</div></td>
+        <td class="alt1 smallfont">Dün 20:15<br>Yazan <a href="{{ url_for('uye_sayfa') }}">Ademin_Kulu</a></td>
+        <td class="alt2 center">9</td><td class="alt1 center">288</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Selvi aslında Mühürcülere ihanet edecek (S1B5 spoiler)</b></a><div class="smallfont muted">cam_kirigi</div></td>
+        <td class="alt1 smallfont">Dün 18:00<br>Yazan <a href="{{ url_for('uye_sayfa') }}">gececi_kedi</a></td>
+        <td class="alt2 center">12</td><td class="alt1 center">402</td><td class="alt2 center gold">&#9733;&#9733;&#9734;&#9734;&#9734;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Kan-Öz'ün fısıltıları gerçek bir dil mi?</b></a><div class="smallfont muted">Mühür_Bekçisi</div></td>
+        <td class="alt1 smallfont">3 gün önce<br>Yazan <a href="{{ url_for('uye_sayfa') }}">sessiz_tanık</a></td>
+        <td class="alt2 center">33</td><td class="alt1 center">1.021</td><td class="alt2 center gold">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon eski" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><a href="{{ url_for('konu_sayfa') }}"><b>Jenerikteki harita ters çevrilince...</b></a><div class="smallfont muted">yarikcocugu_34</div></td>
+        <td class="alt1 smallfont">4 gün önce<br>Yazan <a href="{{ url_for('uye_sayfa') }}">pikselKuzgun</a></td>
+        <td class="alt2 center">6</td><td class="alt1 center">199</td><td class="alt2 center gold">&#9733;&#9733;&#9734;&#9734;&#9734;</td>
+      </tr>
+      <tr>
+        <td class="alt1 center"><span class="ficon kilit" style="width:20px;height:20px"></span></td>
+        <td class="alt2"><b>Kilitli:</b> <a href="{{ url_for('konu_sayfa') }}">bölüm 6 sızdırıldı link burda!!!</a><div class="smallfont muted">spamci_99</div></td>
+        <td class="alt1 smallfont">5 gün önce<br>Yazan <span class="u-mod">KülHatun</span></td>
+        <td class="alt2 center">1</td><td class="alt1 center">77</td><td class="alt2 center">&mdash;</td>
+      </tr>
+    </table>
 
-</div>
-<script>altKisim();</script>
-</div>
-</body>
-</html>
+    <table class="tborder" style="width:auto;float:right">
+      <tr><td class="thead">Forum Seçenekleri</td></tr>
+      <tr><td class="alt1 smallfont">
+        Sırala: <select><option>Son mesaj tarihi</option><option>Konu başlığı</option><option>Cevap sayısı</option><option>Puan</option></select>
+        <select><option>Azalan</option><option>Artan</option></select>
+        <select><option>Tüm zamanlar</option><option>Son 7 gün</option><option>Son 30 gün</option></select>
+        <input type="button" value="Göster">
+      </td></tr>
+    </table>
+    <div class="smallfont">
+      <b>Mesaj izinlerin</b><br>
+      Yeni konu açamazsın<br>Cevap yazamazsın<br>Dosya ekleyemezsin<br>BB kodları <b>açık</b> &middot; Smiley <b>açık</b> &middot; HTML <b>kapalı</b>
+    </div>
+    <div class="clear"></div>
+
+{% endblock %}
+
+{% block breadcrumb_icerigi %}
+      <span class="navbit"><a href="{{ url_for('ana_sayfa') }}">dünyakanıyor.com Forum</a></span> &gt; <a href="{{ url_for('ana_sayfa') }}">Dizi</a> &gt;
+      <b>Teoriler &amp; Spekülasyonlar</b>
+{% endblock %}
